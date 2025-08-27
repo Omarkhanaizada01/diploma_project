@@ -14,16 +14,16 @@ const FollowUs = () => {
 
   return (
     <section className="py-10 bg-white relative">
-      <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 h-[270px] flex flex-col items-center">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
         {/* Заголовок */}
         <h2 
-          className="w-[378px] text-center mb-12 font-poppins font-semibold text-[32px] leading-[1.2] text-[#1A1A1A]"
+          className="w-full max-w-[378px] text-center mb-12 font-poppins font-semibold text-[32px] leading-[1.2] text-[#1A1A1A]"
         >
           Follow us on Instagram
         </h2>
 
         {/* Галерея постов */}
-        <div className="flex justify-center gap-6 w-full">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 w-full">
           {instagramPosts.map((post) => (
             <div 
               key={post.id}
@@ -35,6 +35,7 @@ const FollowUs = () => {
                 alt={`Instagram Post ${post.id}`}
                 width={200}
                 height={200}
+                style={{ width: '100%', height: 'auto' }}
                 className="w-full h-full object-cover transition-all duration-300 group-hover:scale-105"
               />
 
@@ -46,6 +47,7 @@ const FollowUs = () => {
                   alt="Instagram Icon"
                   width={32}
                   height={32}
+                  style={{ width: '32px', height: 'auto' }}
                   className="w-8 h-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 />
               </div>

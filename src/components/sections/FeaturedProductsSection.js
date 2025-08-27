@@ -13,6 +13,7 @@ const AddToCartIcon = ({ className }) => (
     alt="Add to cart" 
     width={24}
     height={24}
+    style={{width:'24px', height:'auto'}}
     className={className}
   />
 );
@@ -23,6 +24,7 @@ const AddToWishlistIcon = ({ className }) => (
     alt="Add to wishlist" 
     width={24}
     height={24}
+    style={{width:'24px', height:'auto'}}
     className={className}
   />
 );
@@ -33,6 +35,7 @@ const QuickViewIcon = ({ className }) => (
     alt="Quick view" 
     width={24}
     height={24}
+    style={{width:'24px', height:'auto'}}
     className={className}
   />
 );
@@ -43,6 +46,7 @@ const RatingIcon = ({ className }) => (
     alt="Rating" 
     width={24}
     height={24}
+    style={{width:'24px', height:'auto'}}
     className={className}
   />
 );
@@ -61,7 +65,7 @@ const FeaturedProductsSection = () => {
 
   return (
     <section className="py-10 bg-white relative">
-      <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <Heading 
           title="Featured Products" 
           buttonText="View All"

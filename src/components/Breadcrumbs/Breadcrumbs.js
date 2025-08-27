@@ -14,6 +14,7 @@ export default function Breadcrumbs() {
         src="/images/breadcrumbs.jpg" 
         alt="Background"
         fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
         className="object-cover -z-10"
       />
       

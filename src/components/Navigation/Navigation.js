@@ -20,11 +20,15 @@ export default function Navigation() {
     { code: "EUR", name: "Euro" },
     { code: "GBP", name: "British Pound" },
   ];
+  
   const nav = [
-    {name: "Home",link:"/" },
-    {name: "Shop",link:"/shop" },
-
-  ]
+    { id: "home", name: "Home", link: "/" },
+    { id: "shop", name: "Shop", link: "/shop" },
+    { id: "pages", name: "Pages", link: "/" },
+    { id: "blog", name: "Blog", link: "/" },
+    { id: "aboutUs", name: "About Us", link: "/" },
+    { id: "contactUs", name: "Contact Us", link: "/" },
+  ];
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -38,7 +42,7 @@ export default function Navigation() {
   }, []);
 
   return (
-    <header className="  w-full bg-white shadow-[0_1px_0_0_#E5E5E5] z-50">
+    <header className="w-full bg-white shadow-[0_1px_0_0_#E5E5E5] z-50">
       {/* Top Bar */}
       <div className="container mx-auto h-[42px] flex justify-between items-center px-4">
         <div className="flex items-center gap-2 max-w-[315px] overflow-hidden text-[12px] text-[#666666]">
@@ -103,37 +107,41 @@ export default function Navigation() {
         </div>
       </div>
 
-     {/* Middle Bar */}
-<div className="container mx-auto h-[93px] flex items-center justify-between px-4">
-  <div className="w-[183px]">
-    <Image 
-      src="/logo.svg" 
-      alt="Logo" 
-      width={183}
-      height={38}
-      className="w-auto h-auto"
-    />
-  </div>
+      {/* Middle Bar */}
+      <div className="container mx-auto h-[93px] flex items-center justify-between px-4">
+        <div className="w-[183px]">
+          <Image 
+            src="/logo.svg" 
+            alt="Logo" 
+            width={183}
+            height={38}
+            style={{ width: 'auto', height: 'auto' }}
+          />
+        </div>
 
-  {/* Поисковая строка с исправленной иконкой */}
-  <div className="w-full max-w-[498px] h-[45px] flex items-center border border-[#E6E6E6] rounded-[6px] overflow-hidden relative">
-    {/* Иконка поиска */}
-    <div className="absolute left-4 h-full flex items-center justify-center pointer-events-none">
-      <FiSearch className="w-5 h-5 text-[#808080]" />
-    </div>
-    
-    {/* Поле ввода */}
-    <input
-      type="text"
-      placeholder="Search"
-      className="w-full h-full pl-12 pr-4 text-[15px] text-[#808080] focus:outline-none"
-    />
-    
-    {/* Кнопка поиска */}
-    <button className="h-full px-6 bg-[#00B207] text-white hover:bg-[#00B207]/90 transition-colors whitespace-nowrap">
-      <span className="text-[14px] font-semibold">Search</span>
-    </button>
-  </div>
+        {/* Поисковая строка с исправленной иконкой */}
+        <div className="w-full max-w-[498px] h-[45px] flex items-center border border-[#E6E6E6] rounded-[6px] overflow-hidden relative">
+          {/* Иконка поиска */}
+          <div className="absolute left-4 h-full flex items-center justify-center pointer-events-none">
+            <FiSearch className="w-5 h-5 text-[#808080]" />
+          </div>
+          
+          {/* Поле ввода */}
+          <input
+  type="search"
+  id="site-search"
+  name="q"
+  placeholder="Search"
+  autoComplete="off"
+  className="w-full h-full pl-12 pr-4 text-[15px] text-[#808080] focus:outline-none"
+/>
+
+          
+          {/* Кнопка поиска */}
+          <button className="h-full px-6 bg-[#00B207] text-white hover:bg-[#00B207]/90 transition-colors whitespace-nowrap">
+            <span className="text-[14px] font-semibold">Search</span>
+          </button>
+        </div>
 
         <div className="flex items-center gap-4">
           <FiHeart className="w-[32px] h-[32px] text-gray-600 hover:text-green-600 transition-colors" />
@@ -157,8 +165,8 @@ export default function Navigation() {
       <nav className="bg-[#333333]">
         <div className="container mx-auto h-[60px] flex justify-between items-center px-4">
           <div className="flex items-center gap-8">
-            {nav.map((item,index) => (
-              <div key={index} className="flex items-center gap-1">
+            {nav.map((item) => (
+              <div key={item.id} className="flex items-center gap-1">
                 <a href={item.link} className="text-[#999999] hover:text-white transition-colors text-[14px] font-medium">
                   {item.name}
                 </a>
@@ -167,6 +175,7 @@ export default function Navigation() {
                   alt="Arrow"
                   width={16}
                   height={16}
+                  style={{ width: '16px', height: 'auto' }}
                   className="rotate-360"
                 />
               </div>
@@ -179,6 +188,7 @@ export default function Navigation() {
               alt="Phone"
               width={28}
               height={28}
+              style={{ width: '28px', height: 'auto' }}
             />
             <span className="text-[#999999] hover:text-white transition-colors text-[14px] font-medium">
               +123 (456) 7890
@@ -189,5 +199,3 @@ export default function Navigation() {
     </header>
   );
 }
-
-

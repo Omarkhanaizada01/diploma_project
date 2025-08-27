@@ -43,7 +43,9 @@ export default function SocialIcons() {
             <Image 
               src={social.icon} 
               alt={social.name}
-              fill
+              width={18}
+              height={18}
+              style={{ width: '18px', height: 'auto' }}
               className="object-contain"
             />
           </div>

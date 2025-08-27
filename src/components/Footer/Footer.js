@@ -26,8 +26,8 @@ export default function Footer() {
   return (
     <footer className="bg-[#F2F2F2] w-full z-10 relative">
       {/* Слой 1: Форма подписки */}
-      <section className="py-10 bg-white">
-        <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-10 bg-white relative">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="border border-[#E6E6E6] bg-white rounded-lg p-8 flex flex-col md:flex-row justify-between items-center">
             <div className="max-w-[448px] mb-6 md:mb-0">
               <h3 className="text-[24px] font-semibold leading-[150%] text-[#1A1A1A] mb-1">
@@ -40,21 +40,20 @@ export default function Footer() {
             </div>
 
             <div className="flex flex-col md:flex-row gap-4 w-full md:w-auto">
-              {/* Здесь должен быть ваш компонент SubscribeForm */}
               <div className="relative w-full md:w-[536px]">
-              <input
-  type="email"
-  id="footer-email" // уникальный ID
-  name="email"      // имя для отправки на сервер
-  placeholder="Your email address"
-  className="w-full h-[52px] pl-6 pr-[120px] rounded-full border border-[#E6E6E6] focus:outline-none focus:ring-2 focus:ring-[#00B207]"
-/>
+                <input
+                  type="email"
+                  id="footer-email"
+                  name="email"
+                  placeholder="Your email address"
+                  autoComplete="email"
+                  className="w-full h-[52px] pl-6 pr-[120px] rounded-full border border-[#E6E6E6] focus:outline-none focus:ring-2 focus:ring-[#00B207]"
+                />
                 <button className="absolute right-1 top-1 h-[44px] px-6 bg-[#00B207] text-white font-semibold rounded-full hover:bg-[#038a05] transition-colors">
                   Subscribe
                 </button>
               </div>
               
-              {/* Здесь должен быть ваш компонент SocialIcons */}
               <div className="flex gap-2">
                 {['facebook', 'twitter', 'pinterest', 'instagram'].map((icon) => (
                   <a 
@@ -68,7 +67,9 @@ export default function Footer() {
                       <Image 
                         src={`/images/icons/${icon}.svg`} 
                         alt={icon}
-                        fill
+                        width={18}
+                        height={18}
+                        style={{ width: '18px', height: 'auto' }}
                         className="object-contain"
                       />
                     </div>
@@ -81,109 +82,87 @@ export default function Footer() {
       </section>
 
       {/* Слой 2: Основное меню */}
-      <section className="py-10 bg-[#1A1A1A]">
-  <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="flex flex-col md:flex-row gap-[112px]">
-      {/* Company Section - слева */}
-      <div className="w-full md:w-[336px] flex flex-col gap-4">
-        <div className="flex items-center gap-2">
-        <Image 
-  src="/logo-modified.svg"  // Сохраните SVG как новый файл
-  alt="Company Logo"
-  width={183}
-  height={38}
-  className="h-[38px] w-[183px]"  // Фиксированные размеры
-/>
-        </div>
-        <p className="text-[14px] leading-[150%] text-[#808080]">
-          Morbi cursus porttitor enim lobortis molestie. Duis gravida turpis dui, 
-          eget bibendum magna congue nec.
-        </p>
-        <div className="flex items-center gap-4">
-          <button className="w-[103px] h-[33px] bg-[#1A1A1A] shadow-[0_1.5px_0_0_#20B526] flex items-center justify-center text-white text-[14px]">
-            Google Play
-          </button>
-          <span className="text-[#808080]">or</span>
-          <button className="w-[103px] h-[33px] bg-[#1A1A1A] shadow-[0_1.5px_0_0_#20B526] flex items-center justify-center text-white text-[14px]">
-            App Store
-          </button>
-        </div>
-      </div>
+      <section className="py-10 bg-[#1A1A1A] relative">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row gap-[112px]">
+            {/* Company Section - слева */}
+            <div className="w-full md:w-[336px] flex flex-col gap-4">
+              <div className="flex items-center gap-2">
+                <Image 
+                  src="/logo-modified.svg"
+                  alt="Company Logo"
+                  width={183}
+                  height={38}
+                  style={{ width: '183px', height: 'auto' }}
+                />
+              </div>
+              <p className="text-[14px] leading-[150%] text-[#808080]">
+                Morbi cursus porttitor enim lobortis molestie. Duis gravida turpis dui, 
+                eget bibendum magna congue nec.
+              </p>
+              <div className="flex items-center gap-4">
+                <button className="w-[103px] h-[33px] bg-[#1A1A1A] shadow-[0_1.5px_0_0_#20B526] flex items-center justify-center text-white text-[14px]">
+                  Google Play
+                </button>
+                <span className="text-[#808080]">or</span>
+                <button className="w-[103px] h-[33px] bg-[#1A1A1A] shadow-[0_1.5px_0_0_#20B526] flex items-center justify-center text-white text-[14px]">
+                  App Store
+                </button>
+              </div>
+            </div>
 
-     {/* Навигационные секции - справа, в один ряд */}
-<div className="flex-1 flex flex-col md:flex-row">
-  {Object.entries(footerLinks).map(([key, section], index) => (
-    <div 
-      key={key} 
-      className="flex flex-col gap-5 min-w-[95px]"
-      style={{
-        marginRight: index === 0 ? '129px' : 
-                     index === 1 ? '95px' : 
-                     index === 2 ? '141px' : '0'
-      }}
-    >
-      <h4 className="text-white text-[16px] font-medium leading-[150%]">
-        {section.title}
-      </h4>
-      <div className="flex flex-col gap-3">
-        {section.links.map((link) => (
-          <Link 
-            href="#" 
-            key={link}
-            className="text-[#999999] text-[14px] hover:text-white transition-colors"
-          >
-            {link}
-          </Link>
-        ))}
-      </div>
-    </div>
-  ))}
-</div>
-    </div>
-  </div>
-</section>
+            {/* Навигационные секции - справа, в один ряд */}
+            <div className="flex-1 flex flex-col md:flex-row">
+              {Object.entries(footerLinks).map(([key, section]) => (
+                <div 
+                  key={key} 
+                  className="flex flex-col gap-5 min-w-[95px] mr-40 last:mr-0"
+                >
+                  <h4 className="text-white text-[16px] font-medium leading-[150%]">
+                    {section.title}
+                  </h4>
+                  <div className="flex flex-col gap-3">
+                    {section.links.map((link) => (
+                      <Link 
+                        href="#" 
+                        key={link}
+                        className="text-[#999999] text-[14px] hover:text-white transition-colors"
+                      >
+                        {link}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
-      {/* Слой 3: Копирайт */}
       {/* Слой 3: Копирайт и методы оплаты */}
-      <div className="bg-[#1A1A1A] border-t border-[#333] py-6">
-  <div className="max-w-[1320px] mx-auto px-4 flex justify-between items-center">
-    {/* Текст копирайта слева */}
-    <div className="text-[#666666] text-sm">
-      © {new Date().getFullYear()} Ecobazar eCommerce © 2021. All Rights Reserved
-    </div>
-    
-    {/* Контейнер для иконок платежных систем */}
-    <div className="flex-1 flex justify-end">
-      <div className="flex gap-[8px] h-[32px]">
-        <img 
-          src="/images/icons/applePay.svg" 
-          alt="Apple Pay" 
-          className="h-full w-auto opacity-100"
-        />
-        <img 
-          src="/images/icons/visa.svg" 
-          alt="Visa" 
-          className="h-full w-auto opacity-100"
-        />
-        <img 
-          src="/images/icons/discover.svg" 
-          alt="Discover" 
-          className="h-full w-auto opacity-100"
-        />
-        <img 
-          src="/images/icons/mastercard.svg" 
-          alt="Mastercard" 
-          className="h-full w-auto opacity-100"
-        />
-        <img 
-          src="/images/icons/cart.svg" 
-          alt="Cart" 
-          className="h-full w-auto opacity-100"
-        />
+      <div className="bg-[#1A1A1A] border-t border-[#333] py-10 relative">
+        <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+          {/* Текст копирайта */}
+          <div className="text-[#666666] text-sm">
+            © {new Date().getFullYear()} Ecobazar eCommerce © 2021. All Rights Reserved
+          </div>
+          
+          {/* Контейнер для иконок платежных систем */}
+          <div className="flex gap-3 h-8">
+            {['applePay', 'visa', 'discover', 'mastercard', 'cart'].map((payment) => (
+              <div key={payment} className="relative w-10 h-8">
+                <Image 
+                  src={`/images/icons/${payment}.svg`} 
+                  alt={payment}
+                  fill
+                  sizes="40px"
+                  className="object-contain"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
     </footer>
   );
 }

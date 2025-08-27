@@ -1,6 +1,7 @@
 // src/components/sections/PopularCategories.js
 "use client";
 
+import Image from 'next/image';
 import { Heading } from '@/components/ui';
 
 const PopularCategories = () => {
@@ -66,36 +67,36 @@ const PopularCategories = () => {
       name: "Oil", 
       image: "/images/categories/oil category.svg" 
     },
-    
   ];
 
   return (
-    <section className="py-10 bg-white">
-      <div className="max-w-[1320px] mx-auto">
+    <section className="py-10 bg-white relative">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <Heading 
           title="Popular Categories" 
           buttonText="View All"
-          className="mb-8 px-4 sm:px-6 lg:px-8"
+          className="mb-8"
         />
         
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
           {categories.map((category) => (
             <div 
               key={category.id}
-              className="w-[200px] h-[213px] flex flex-col items-center pt-4 pb-6 gap-4 bg-white border border-[#E5E5E5] rounded-[5px] hover:border-green-500 transition-colors cursor-pointer"
+              className="w-full max-w-[200px] h-[213px] flex flex-col items-center pt-4 pb-6 gap-4 bg-white border border-[#E5E5E5] rounded-[5px] hover:border-green-500 transition-colors cursor-pointer mx-auto"
             >
               {/* Изображение категории */}
               <div className="w-[190px] h-[130px] overflow-hidden flex items-center justify-center">
-                <img 
+                <Image 
                   src={category.image} 
                   alt={category.name}
-                  className="w-full h-full object-cover"
                   width={190}
                   height={130}
+                  style={{ width: '190px', height: 'auto' }}
+                  className="object-contain"
                 />
               </div>
               
-              <h3 className="text-center font-medium text-[#1A1A1A]">
+              <h3 className="text-center font-medium text-[#1A1A1A] text-sm px-2">
                 {category.name}
               </h3>
             </div>

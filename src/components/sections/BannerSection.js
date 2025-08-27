@@ -15,42 +15,40 @@ const BannerSection = () => {
         days: 2,
         hours: 10,
         mins: 30,
-        secs: 45
-      }
+        secs: 45,
+      },
     },
     {
       id: 2,
       imageSrc: '/images/banners/banner 2.svg',
       topText: '85% Fat free',
       mainTitle: 'Low-Fat Meat',
-      price: 'Started at $79.99'
+      price: 'Started at $79.99',
     },
     {
       id: 3,
       imageSrc: '/images/banners/banner 3.svg',
       topText: 'Summer Sale',
       mainTitle: '100% Fresh Fruit',
-      discount: 64
-    }
+      discount: 64,
+    },
   ];
 
   return (
-    <section className="py-10 bg-white relative">
-      <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex gap-6"> {/* 24px gap между баннерами */}
-          {banners.map((banner) => (
-            <Banner
-              key={banner.id}
-              imageSrc={banner.imageSrc}
-              topText={banner.topText}
-              mainTitle={banner.mainTitle}
-              buttonText={banner.buttonText}
-              timer={banner.timer}
-              price={banner.price}
-              discount={banner.discount}
-            />
-          ))}
-        </div>
+    <section className="container mx-auto px-4 py-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {banners.map((banner) => (
+          <Banner
+            key={banner.id}
+            imageSrc={banner.imageSrc}
+            topText={banner.topText}
+            mainTitle={banner.mainTitle}
+            buttonText={banner.buttonText}
+            timer={banner.timer}
+            price={banner.price}
+            discount={banner.discount}
+          />
+        ))}
       </div>
     </section>
   );

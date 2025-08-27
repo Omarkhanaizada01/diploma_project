@@ -4,17 +4,20 @@ import Image from 'next/image';
 export default function LocationPath({ currentPage }) {
   const paths = [
     { 
+      id: 'home',
       type: 'icon', 
       content: '/images/icons/home.svg',
       link: '/',
       alt: 'Home'
     },
     { 
+      id: 'categories',
       type: 'text', 
       content: 'Categories',
       link: '/categories'
     },
     { 
+      id: 'current',
       type: 'text', 
       content: currentPage
     }
@@ -24,7 +27,7 @@ export default function LocationPath({ currentPage }) {
     <div className="container mx-auto px-4 h-full flex items-center">
       <div className="flex items-center gap-[12px]">
         {paths.map((item, index) => (
-          <div key={index} className="flex items-center gap-[12px]">
+          <div key={item.id} className="flex items-center gap-[12px]">
             {/* Иконка Home */}
             {item.type === 'icon' && (
               <Link href={item.link} passHref>
@@ -34,6 +37,7 @@ export default function LocationPath({ currentPage }) {
                     alt={item.alt}
                     width={24}
                     height={24}
+                    style={{ width: '24px', height: 'auto' }}
                   />
                 </div>
               </Link>
@@ -68,6 +72,8 @@ export default function LocationPath({ currentPage }) {
                 width={8.17}
                 height={4.08}
                 style={{
+                  width: '8.17px',
+                  height: 'auto',
                   transform: 'rotate(0deg)',
                   opacity: 1
                 }}

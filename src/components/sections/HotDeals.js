@@ -1,8 +1,9 @@
 // components/sections/HotDeals.js
 'use client';
+
 import Heading from '@/components/ui/headings/Heading';
 import BigProductCard from '@/components/ui/cards/BigProductCard/BigProductCard';
-import ProductCard from '@/components/ui/cards/ProductCard/ProductCard';
+import ProductCard5n from '@/components/ui/cards/ProductCard/ProductCard';
 
 const HotDeals = () => {
   const bigProduct = {
@@ -12,7 +13,7 @@ const HotDeals = () => {
     price: 14.99,
     originalPrice: 29.99,
     rating: 4,
-    hoverVariant: 'green'
+    hoverVariant: 'green',
   };
 
   const products = [
@@ -23,7 +24,7 @@ const HotDeals = () => {
       price: 18.99,
       originalPrice: 24.99,
       rating: 5,
-      hoverVariant: 'gray'
+      hoverVariant: 'gray',
     },
     {
       id: 3,
@@ -32,7 +33,7 @@ const HotDeals = () => {
       price: 12.99,
       originalPrice: 15.99,
       rating: 3,
-      hoverVariant: 'yellow'
+      hoverVariant: 'yellow',
     },
     {
       id: 4,
@@ -41,7 +42,7 @@ const HotDeals = () => {
       price: 22.99,
       originalPrice: 29.99,
       rating: 5,
-      hoverVariant: 'red'
+      hoverVariant: 'red',
     },
     {
       id: 5,
@@ -50,7 +51,7 @@ const HotDeals = () => {
       price: 16.99,
       originalPrice: 19.99,
       rating: 4,
-      hoverVariant: 'purple'
+      hoverVariant: 'purple',
     },
     {
       id: 6,
@@ -59,7 +60,7 @@ const HotDeals = () => {
       price: 24.99,
       originalPrice: 32.99,
       rating: 4,
-      hoverVariant: 'green'
+      hoverVariant: 'green',
     },
     {
       id: 7,
@@ -68,8 +69,8 @@ const HotDeals = () => {
       price: 19.99,
       originalPrice: 24.99,
       rating: 4,
-      hoverVariant: 'green'
-    }
+      hoverVariant: 'green',
+    },
   ];
 
   const bottomProducts = [
@@ -80,7 +81,7 @@ const HotDeals = () => {
       price: 15.99,
       originalPrice: 18.99,
       rating: 3,
-      hoverVariant: 'green'
+      hoverVariant: 'green',
     },
     {
       id: 9,
@@ -89,7 +90,7 @@ const HotDeals = () => {
       price: 17.99,
       originalPrice: 21.99,
       rating: 4,
-      hoverVariant: 'orange'
+      hoverVariant: 'orange',
     },
     {
       id: 10,
@@ -98,7 +99,7 @@ const HotDeals = () => {
       price: 23.99,
       originalPrice: 28.99,
       rating: 5,
-      hoverVariant: 'yellow'
+      hoverVariant: 'yellow',
     },
     {
       id: 11,
@@ -107,7 +108,7 @@ const HotDeals = () => {
       price: 26.99,
       originalPrice: 32.99,
       rating: 4,
-      hoverVariant: 'yellow'
+      hoverVariant: 'yellow',
     },
     {
       id: 12,
@@ -116,68 +117,44 @@ const HotDeals = () => {
       price: 20.99,
       originalPrice: 25.99,
       rating: 5,
-      hoverVariant: 'red'
-    }
+      hoverVariant: 'red',
+    },
   ];
 
   return (
-    <section className="py-10 bg-gray-50">
-      <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Заголовок секции */}
-        <Heading 
-          title="Hot Deals" 
-          subtitle="Don't miss out on these limited time offers"
-          buttonText="View All"
-          className="mb-8"
-        />
+    <section className="container mx-auto px-4 py-8">
+      {/* Заголовок */}
+      <Heading
+        title="Hot Deals"
+        subtitle="Don't miss out on these limited time offers"
+        buttonText="View All"
+        className="mb-8"
+      />
 
-        {/* Основной контент */}
-        <div className="flex flex-col lg:flex-row  mb-10">
-          {/* Большая карточка слева */}
-          <div className="lg:w-[528px]">
-            <BigProductCard 
-              image={bigProduct.image}
-              title={bigProduct.title}
-              price={bigProduct.price}
-              originalPrice={bigProduct.originalPrice}
-              rating={bigProduct.rating}
-              hoverVariant={bigProduct.hoverVariant}
-            />
-          </div>
-
-          {/* Две колонки с карточками справа */}
-          <div className="flex-1 grid grid-cols-2 md:grid-cols-3 ">
-            {products.map(product => (
-              <ProductCard 
-                key={product.id}
-                image={product.image}
-                title={product.title}
-                price={product.price}
-                originalPrice={product.originalPrice}
-                rating={product.rating}
-                hoverVariant={product.hoverVariant}
-              />
-            ))}
-          </div>
+      {/* Верхний блок */}
+      <div className="flex flex-col lg:flex-row mb-10 ">
+        {/* Большая карточка */}
+        <div className="lg:w-[528px]">
+          <BigProductCard {...bigProduct} />
         </div>
 
-        {/* Горизонтальные карточки внизу */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 ">
-          {bottomProducts.map(product => (
-            <ProductCard 
-              key={product.id}
-              image={product.image}
-              title={product.title}
-              price={product.price}
-              originalPrice={product.originalPrice}
-              rating={product.rating}
-              hoverVariant={product.hoverVariant}
-            />
+        {/* Сетка карточек справа */}
+        <div className="flex-1 grid grid-cols-2 md:grid-cols-3 ">
+          {products.map((product) => (
+            <ProductCard5n key={product.id} {...product} />
           ))}
         </div>
+      </div>
+
+      {/* Нижний блок */}
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 ">
+        {bottomProducts.map((product) => (
+          <ProductCard5n key={product.id} {...product} />
+        ))}
       </div>
     </section>
   );
 };
 
 export default HotDeals;
+

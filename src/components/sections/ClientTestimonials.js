@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import HeadingWithArrows from '@/components/ui/headings/HeadingWithArrows';
 
 const ClientTestimonials = () => {
@@ -27,8 +28,8 @@ const ClientTestimonials = () => {
   ];
 
   return (
-    <section className="py-10 bg-[#F2F2F2] relative mt-[120 px]">
-      <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-10 bg-[#F2F2F2] relative mt-[120px]">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <HeadingWithArrows />
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
@@ -43,31 +44,41 @@ const ClientTestimonials = () => {
 
 const TestimonialCard = ({ text, name, role, avatar }) => {
   return (
-    <div className="w-[424px] h-[254px] relative bg-white rounded-lg shadow-[0px_10px_20px_0px_#00000003] p-6">
+    <div className="w-full max-w-[424px] h-[254px] relative bg-white rounded-lg shadow-[0px_10px_20px_0px_#00000003] p-6">
       {/* Quote icon */}
-      <img 
-        src="/images/icons/quote vector.png" 
-        alt="Quote" 
-        className="w-8 h-[26px] opacity-30 mb-4"
-      />
+      <div className="w-8 h-[26px] relative mb-4">
+        <Image 
+          src="/images/icons/quote vector.png" 
+          alt="Quote" 
+          width={32}
+          height={26}
+          style={{ width: '32px', height: 'auto' }}
+          className="opacity-30"
+        />
+      </div>
       
       {/* Testimonial text */}
-      <p className="text-[#4D4D4D] text-sm font-normal font-poppins leading-[150%] w-[376px] h-[84px]">
+      <p className="text-[#4D4D4D] text-sm font-normal font-poppins leading-[150%] w-full">
         {text}
       </p>
       
       {/* Client info */}
-      <div className="flex justify-between items-center w-[376px] h-16 pt-2 mt-4">
-        <div className="flex items-center gap-3 w-[168px] h-14">
+      <div className="flex justify-between items-center w-full pt-2 mt-4">
+        <div className="flex items-center gap-3">
           {/* Avatar */}
-          <img 
-            src={avatar} 
-            alt={name} 
-            className="w-14 h-14"
-          />
+          <div className="w-14 h-14 relative">
+            <Image 
+              src={avatar} 
+              alt={name}
+              width={56}
+              height={56}
+              style={{ width: '56px', height: 'auto' }}
+              className="rounded-full"
+            />
+          </div>
           
           {/* Info */}
-          <div className="w-[84px] h-[45px]">
+          <div>
             <h4 className="text-[#1A1A1A] text-base font-medium font-poppins leading-[150%]">
               {name}
             </h4>
@@ -78,11 +89,15 @@ const TestimonialCard = ({ text, name, role, avatar }) => {
         </div>
         
         {/* Rating */}
-        <img 
-          src="/images/icons/rating.svg" 
-          alt="Rating" 
-          className="w-[104px] h-5"
-        />
+        <div className="w-[104px] h-5 relative">
+          <Image 
+            src="/images/icons/rating.svg" 
+            alt="Rating" 
+            width={104}
+            height={20}
+            style={{ width: '104px', height: 'auto' }}
+          />
+        </div>
       </div>
     </div>
   );

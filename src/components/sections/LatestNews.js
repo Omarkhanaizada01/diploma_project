@@ -1,10 +1,9 @@
 'use client';
 import Image from 'next/image';
 import ArrowButton from '@/components/ui/buttons/ArrowButton';
-
+import Heading from '@/components/ui/headings/Heading';
 
 const LatestNews = () => {
-  // Данные для карточек блога
   const blogPosts = [
     {
       id: 1,
@@ -16,8 +15,7 @@ const LatestNews = () => {
         { icon: '/images/icons/user tag.svg', text: 'By Admin' },
         { icon: '/images/icons/comments tag.svg', text: '65 Comments' }
       ],
-      title: 'Curabitur porttitor orci eget neque accumsan venenatis.',
-      hover: true
+      title: 'Curabitur porttitor orci eget neque accumsan venenatis.'
     },
     {
       id: 2,
@@ -29,8 +27,7 @@ const LatestNews = () => {
         { icon: '/images/icons/user tag.svg', text: 'By Admin' },
         { icon: '/images/icons/comments tag.svg', text: '65 Comments' }
       ],
-      title: 'Eget lobortis lorem lacinia. Vivamus pharetra semper.',
-      hover: false
+      title: 'Eget lobortis lorem lacinia. Vivamus pharetra semper.'
     },
     {
       id: 3,
@@ -42,44 +39,40 @@ const LatestNews = () => {
         { icon: '/images/icons/user tag.svg', text: 'By Admin' },
         { icon: '/images/icons/comments tag.svg', text: '65 Comments' }
       ],
-      title: 'Maecenas blandit risus elementum mauris malesuada.',
-      hover: false
+      title: 'Maecenas blandit risus elementum mauris malesuada.'
     }
   ];
 
   return (
-    <section className="py-10 bg-white relative mt-[-360px]">
-      <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-[#1A1A1A]">
-            Latest News
-          </h2>
-        </div>
+    <section className="bg-white relative mt-[-320px]">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <Heading 
+          title="Latest News" 
+          buttonText="View All"
+          className="mb-8"
+        />
         
-        <div className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogPosts.map((post) => (
             <div 
               key={post.id}
-              className={`relative w-[424px] h-[494px] rounded-lg overflow-hidden ${post.hover ? 'hover:shadow-lg' : ''}`}
+              className="relative flex-shrink-0 w-[300px] sm:w-[350px] md:w-[424px] rounded-lg overflow-hidden bg-white transition hover:shadow-xl hover:-translate-y-1"
               style={{
                 boxShadow: '0px 20px 50px 0px rgba(0, 0, 0, 0.08)'
               }}
             >
               {/* Изображение */}
-              <div className="relative w-[424px] h-[324px]">
+              <div className="relative w-full h-[240px] sm:h-[280px] md:h-[324px]">
                 <Image
                   src={post.image}
-                  alt={`Blog post ${post.id}`}
+                  alt={post.title}
                   fill
                   className="object-cover"
                 />
                 
                 {/* Дата */}
                 <div 
-                  className="absolute top-[242px] left-[24px] w-[58px] h-[58px] bg-white rounded flex flex-col items-center justify-center"
-                  style={{
-                    boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.1)'
-                  }}
+                  className="absolute bottom-4 left-4 w-[58px] h-[58px] bg-white rounded flex flex-col items-center justify-center shadow-md"
                 >
                   <span className="font-bold text-xl text-[#1A1A1A]">{post.date}</span>
                   <span className="text-xs text-[#4D4D4D]">{post.month}</span>
@@ -87,25 +80,18 @@ const LatestNews = () => {
               </div>
               
               {/* Информация */}
-              <div className="w-full h-[170px] bg-white p-6 flex flex-col gap-5 ">
+              <div className="w-full p-6 flex flex-col gap-4">
                 {/* Теги */}
-                <div className="flex gap-4">
-                  {post.tags.map((tag, index) => (
-                    <div key={index} className="flex items-center gap-1">
+                <div className="flex flex-wrap gap-3">
+                  {post.tags.map((tag) => (
+                    <div key={tag.text} className="flex items-center gap-1">
                       <Image 
                         src={tag.icon} 
                         alt={tag.text} 
                         width={14} 
                         height={14} 
                       />
-                      <span 
-                        className="text-sm text-[#4D4D4D]"
-                        style={{
-                          fontFamily: 'Poppins, sans-serif',
-                          fontWeight: 400,
-                          lineHeight: '150%'
-                        }}
-                      >
+                      <span className="text-sm text-[#4D4D4D] font-normal">
                         {tag.text}
                       </span>
                     </div>
@@ -113,27 +99,18 @@ const LatestNews = () => {
                 </div>
                 
                 {/* Заголовок */}
-                <h3 
-                  className="text-lg font-medium text-[#1A1A1A] mt-[-16px]"
-                  style={{
-                    fontFamily: 'Poppins, sans-serif',
-                    fontWeight: 500,
-                    lineHeight: '150%'
-                  }}
-                >
+                <h3 className="text-lg font-medium text-[#1A1A1A] leading-snug">
                   {post.title}
                 </h3>
                 
                 {/* Кнопка */}
-                <div className="mt-[-10px]">
-                  <ArrowButton 
-                    variant="text-only"
-                    className="w-[108px] h-[19px] gap-[12px]"
-                    iconClassName="text-[12px] font-medium"
-                  >
-                    Read More
-                  </ArrowButton>
-                </div>
+                <ArrowButton 
+                  variant="text-only"
+                  className="w-[108px] h-[19px] gap-[12px]"
+                  iconClassName="text-[12px] font-medium"
+                >
+                  Read More
+                </ArrowButton>
               </div>
             </div>
           ))}

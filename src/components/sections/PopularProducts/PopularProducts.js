@@ -4,7 +4,6 @@
 import Image from 'next/image';
 import ProductCard5n from '@/components/ui/cards/ProductCard/ProductCard';
 import SaleCard from '@/components/ui/cards/ProductCard/variants/SaleCard';
-import HoverCard from '@/components/ui/cards/ProductCard/variants/HoverCard';
 import Heading from '@/components/ui/headings/Heading';
 
 const AddToCartIcon = ({ className }) => (
@@ -13,6 +12,7 @@ const AddToCartIcon = ({ className }) => (
     alt="Add to cart" 
     width={24}
     height={24}
+    style={{ width: '24px', height: 'auto' }}
     className={className}
   />
 );
@@ -23,6 +23,7 @@ const AddToWishlistIcon = ({ className }) => (
     alt="Add to wishlist" 
     width={24}
     height={24}
+    style={{ width: '24px', height: 'auto' }}
     className={className}
   />
 );
@@ -33,6 +34,7 @@ const QuickViewIcon = ({ className }) => (
     alt="Quick view" 
     width={24}
     height={24}
+    style={{ width: '24px', height: 'auto' }}
     className={className}
   />
 );
@@ -43,11 +45,13 @@ const RatingIcon = ({ className }) => (
     alt="Rating" 
     width={24}
     height={24}
+    style={{ width: '24px', height: 'auto' }}
     className={className}
   />
 );
 
 const sampleProduct = {
+  id: 1,
   image: '/images/products/green apple.svg',
   title: 'Green Apple',
   price: 14.99,
@@ -56,12 +60,16 @@ const sampleProduct = {
 };
 
 const PopularProducts = () => {
-  // Создаем массив из 10 продуктов
-  const products = Array(10).fill({ ...sampleProduct });
+  // Создаем массив из 10 продуктов с уникальными id
+  const products = Array.from({ length: 10 }, (_, index) => ({
+    ...sampleProduct,
+    id: index + 1,
+    title: `${sampleProduct.title} ${index + 1}`
+  }));
 
   return (
     <section className="py-10 bg-white relative">
-      <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <Heading 
           title="Popular Products" 
           buttonText="View All"
@@ -69,11 +77,11 @@ const PopularProducts = () => {
         />
         
         {/* Контейнер для карточек */}
-        <div className="w-full" style={{ height: '714px' }}>
+        <div className="w-full min-h-[714px]">
           {/* Верхний ряд - 5 карточек */}
-          <div className="flex" style={{ gap: 0 }}>
+          <div className="flex flex-wrap">
             {products.slice(0, 5).map((product, index) => (
-              <div key={`top-${index}`} className="w-1/5">
+              <div key={`top-${product.id}`} className="w-full md:w-1/2 lg:w-1/5">
                 {index === 0 ? ( // Первая карточка - SaleCard
                  <SaleCard tags={['sale']} salePercent={50} />
                 ) : (
@@ -89,9 +97,9 @@ const PopularProducts = () => {
           </div>
           
           {/* Нижний ряд - 5 карточек */}
-          <div className="flex" style={{ gap: 0 }}>
+          <div className="flex flex-wrap mt-6">
             {products.slice(5, 10).map((product, index) => (
-              <div key={`bottom-${index}`} className="w-1/5">
+              <div key={`bottom-${product.id}`} className="w-full md:w-1/2 lg:w-1/5">
                 {index === 3 ? ( // Девятая карточка (5 + 3 = 8-й индекс, так как индексы с 0)
                  <SaleCard tags={['sale']} salePercent={50} />
                 ) : (
