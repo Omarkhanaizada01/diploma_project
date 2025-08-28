@@ -10,7 +10,7 @@ export default function ShopPage() {
     name: `Product ${index + 1}`,
     price: `$${(19.99 + index).toFixed(2)}`,
     oldPrice: `$${(29.99 + index).toFixed(2)}`,
-    image: "/images/products/green apple.svg"
+    image: "/images/products/greenApple.svg"
   }));
 
   return (

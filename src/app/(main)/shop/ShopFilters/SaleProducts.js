@@ -27,7 +27,7 @@ export default function SaleProducts() {
               {/* Изображение слева */}
               <div className="w-[112px] h-[112px] p-1 flex items-center justify-center">
   <Image
-    src="/images/products/green apple.svg"
+    src="/images/products/greenApple.svg"
     alt={product.name}
     width={80}
     height={80}
