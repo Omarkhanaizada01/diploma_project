@@ -3,6 +3,7 @@ import Breadcrumbs from "@/components/Breadcrumbs/Breadcrumbs";
 import ShopTopBar from './ShopTopBar'; 
 import CategoriesList from './ShopFilters/CategoriesList';
 import { ProductCard4x } from '@/components/ui/cards/ProductCard/ProductCard';
+import Pagination from "./Pagination";
 
 export default function ShopPage() {
   const products = Array.from({ length: 15 }, (_, index) => ({
@@ -43,6 +44,11 @@ export default function ShopPage() {
                     showQuickView={true}
                   />
                 ))}
+              </div>
+
+              {/* Пагинация снизу */}
+              <div className="mt-10 flex justify-center">
+                <Pagination />
               </div>
             </div>
           </main>
