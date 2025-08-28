@@ -37,14 +37,12 @@ const FeaturesSection = () => {
           {features.map((feature) => (
             <div key={feature.id} className="flex items-center gap-4 p-4">
               <div className="w-10 h-10 flex-shrink-0 relative">
-                <Image 
-                  src={feature.icon} 
-                  alt={feature.title}
-                  width={40}
-                  height={40}
-                  style={{ width: '40px', height: 'auto' }}
-                  className="object-contain"
-                />
+              <Image 
+        src={feature.icon} 
+        alt={feature.title}
+        fill // ← ОБЯЗАТЕЛЬНО для всех
+        className="object-contain" 
+      />
               </div>
               <div>
                 <h3 className="font-semibold text-[#1A1A1A] text-[16px] leading-[150%]">

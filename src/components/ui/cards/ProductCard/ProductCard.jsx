@@ -13,7 +13,7 @@ const BaseProductCard = ({
     name: "Green Apple",
     price: "$14.99",
     oldPrice: "$24.99",
-    image: "/images/products/green apple.svg"
+    image: "/images/products/greenApple.svg"
   }
 }) => {
   const [isHovered, setIsHovered] = useState(false);

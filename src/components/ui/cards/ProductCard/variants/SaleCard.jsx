@@ -59,7 +59,7 @@ const SaleCard = ({
       {/* Изображение продукта */}
       <div className="w-[264px] h-[240px] p-[5px] relative">
         <Image
-          src="/images/products/green apple.svg"
+          src="/images/products/greenApple.svg"
           alt="Green Apple"
           width={264}
           height={240}

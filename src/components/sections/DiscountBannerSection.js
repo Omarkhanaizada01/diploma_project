@@ -8,7 +8,7 @@ const DiscountBannerSection = () => {
       <div className="relative w-full h-[358px] sm:h-[400px] md:h-[450px] rounded-[10px] overflow-hidden">
         {/* Баннерная картинка */}
         <Image
-          src="/images/banners/discount banner.jpg"
+          src="/images/banners/discountBanner.jpg"
           alt="Summer Sale 37% Off"
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1320px"

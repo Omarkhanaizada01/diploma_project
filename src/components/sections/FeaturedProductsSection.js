@@ -2,7 +2,7 @@
 'use client';
 
 import Image from 'next/image';
-import ProductCard from '@/components/ui/cards/ProductCard/ProductCard';
+import ProductCard5n from '@/components/ui/cards/ProductCard/ProductCard';
 import SaleCard from '@/components/ui/cards/ProductCard/variants/SaleCard';
 import HoverCard from '@/components/ui/cards/ProductCard/variants/HoverCard';
 import Heading from '@/components/ui/headings/Heading';
@@ -46,7 +46,6 @@ const RatingIcon = ({ className }) => (
     alt="Rating" 
     width={24}
     height={24}
-    style={{width:'24px', height:'auto'}}
     className={className}
   />
 );
@@ -81,7 +80,7 @@ const FeaturedProductsSection = () => {
                 {index === 0 ? ( // Первая карточка - SaleCard
                  <SaleCard tags={['sale']} salePercent={50} />
                 ) : (
-                  <ProductCard 
+                  <ProductCard5n 
                     {...product}
                     CartIcon={AddToCartIcon}
                     WishlistIcon={AddToWishlistIcon}

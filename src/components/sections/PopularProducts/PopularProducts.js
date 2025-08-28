@@ -12,7 +12,7 @@ const AddToCartIcon = ({ className }) => (
     alt="Add to cart" 
     width={24}
     height={24}
-    style={{ width: '24px', height: 'auto' }}
+    
     className={className}
   />
 );
@@ -23,7 +23,7 @@ const AddToWishlistIcon = ({ className }) => (
     alt="Add to wishlist" 
     width={24}
     height={24}
-    style={{ width: '24px', height: 'auto' }}
+    
     className={className}
   />
 );
@@ -34,7 +34,7 @@ const QuickViewIcon = ({ className }) => (
     alt="Quick view" 
     width={24}
     height={24}
-    style={{ width: '24px', height: 'auto' }}
+   
     className={className}
   />
 );
@@ -45,7 +45,7 @@ const RatingIcon = ({ className }) => (
     alt="Rating" 
     width={24}
     height={24}
-    style={{ width: '24px', height: 'auto' }}
+    
     className={className}
   />
 );

@@ -115,7 +115,7 @@ export default function Navigation() {
             alt="Logo" 
             width={183}
             height={38}
-            style={{ width: 'auto', height: 'auto' }}
+            
           />
         </div>
 
@@ -175,7 +175,7 @@ export default function Navigation() {
                   alt="Arrow"
                   width={16}
                   height={16}
-                  style={{ width: '16px', height: 'auto' }}
+                
                   className="rotate-360"
                 />
               </div>
@@ -188,7 +188,7 @@ export default function Navigation() {
               alt="Phone"
               width={28}
               height={28}
-              style={{ width: '28px', height: 'auto' }}
+              
             />
             <span className="text-[#999999] hover:text-white transition-colors text-[14px] font-medium">
               +123 (456) 7890
